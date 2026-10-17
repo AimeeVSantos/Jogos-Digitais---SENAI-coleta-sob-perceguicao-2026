@@ -4,6 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://bq6hj01mgkbo3" path="res://assets/kenney_city-kit-suburban_20/Models/FBX format/fence.fbx" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://x3i6gstewb3y" path="res://assets/kenney_city-kit-suburban_20/Models/FBX format/building-type-u.fbx" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b8kw0enky8nod" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-c.fbx" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ckldwbdse704i" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-a.fbx" id="5_lquwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_272bh"]
+sky_material = SubResource("ProceduralSkyMaterial_7mycd")
+
+[sub_resource type="Environment" id="Environment_5vw27"]
+background_mode = 2
+sky = SubResource("Sky_272bh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sx1ah"]
 size = Vector3(1.4303836, 0.001, 8.644939)
@@ -18,7 +30,18 @@ size = Vector3(1.084137, 1.1664429, 1.4072266)
 radius = 0.071777344
 height = 0.21116638
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sx1ah"]
+radius = 0.07421875
+height = 0.24648666
+
 [node name="Principal" type="Node3D" unique_id=541282533]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=309694719]
+environment = SubResource("Environment_5vw27")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=618182789]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="cenario" type="Node3D" parent="." unique_id=1260201208]
 
@@ -289,6 +312,7 @@ shape = SubResource("BoxShape3D_xyeg7")
 transform = Transform3D(0.01121388, 0, 0.9999371, 0, 1, 0, -0.9999371, 0, 0.01121388, 1.506908, -0.033230156, 0.17064905)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="cenario" unique_id=1681279521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0046027005, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/CharacterBody3D" unique_id=140671016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10863495, 0)
@@ -299,3 +323,13 @@ transform = Transform3D(0.29535216, 0, 0, 0, 0.2553367, 0, 0, 0, 0.3191281, 0, 0
 
 [node name="Camera3D" type="Camera3D" parent="cenario/CharacterBody3D" unique_id=1880993930]
 transform = Transform3D(-0.9994877, 4.6663353e-09, 0.032005813, 0.015974473, 0.8665379, 0.4988557, -0.027734246, 0.49911144, -0.8660938, 0, 0.33873647, -0.28190836)
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="cenario" unique_id=373596444]
+transform = Transform3D(-0.99985754, 0, 0.016877001, 0, 1, 0, -0.016877001, 0, -0.99985754, 0, 0.010870844, 1.9727991)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/CharacterBody3D2" unique_id=1827705788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38479236, 0.08430934, 1.959252)
+shape = SubResource("CapsuleShape3D_sx1ah")
+
+[node name="character-female-a" parent="cenario/CharacterBody3D2" unique_id=409796544 instance=ExtResource("5_lquwl")]
+transform = Transform3D(-0.35059902, 0, -0.024212109, 0, 0.25606075, 0, 0.026211318, 0, -0.3238581, 0.38041064, 0, 1.9650996)
