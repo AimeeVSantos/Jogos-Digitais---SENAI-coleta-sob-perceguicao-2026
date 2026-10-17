@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ft33j0vexotl"]
+
+[ext_resource type="PackedScene" uid="uid://bxohccf4ntucl" path="res://assets/kenney_city-kit-suburban_20/Models/GLB format/path-long.glb" id="1_ig7tw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sx1ah"]
+size = Vector3(0.21172667, 0.034118652, 0.39549184)
+
+[node name="Principal" type="Node3D" unique_id=541282533]
+
+[node name="cenario" type="Node3D" parent="." unique_id=1260201208]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cenario" unique_id=1026731648]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/StaticBody3D" unique_id=1294012485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1323562e-05, 0.010040283, -0.000100016594)
+shape = SubResource("BoxShape3D_sx1ah")
+
+[node name="path-long2" parent="cenario/StaticBody3D" unique_id=1979348434 instance=ExtResource("1_ig7tw")]
