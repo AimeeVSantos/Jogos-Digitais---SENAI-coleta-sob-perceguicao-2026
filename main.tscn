@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8kw0enky8nod" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-c.fbx" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bsfqa0lgseyel" path="res://scripts/jogador.gd" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ckldwbdse704i" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-a.fbx" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dxk07jckum8e" path="res://inimigo.gd" id="6_kek77"]
 [ext_resource type="Script" uid="uid://x33gtqhgrgie" path="res://item.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://pg4gteq3hrlq" path="res://assets/kenney_city-kit-suburban_20/Models/GLB format/planter.glb" id="7_272bh"]
 
@@ -331,8 +332,10 @@ transform = Transform3D(-0.29535216, 0, -2.7899064e-08, 0, 0.2553367, 0, 2.58205
 [node name="Camera3D" type="Camera3D" parent="cenario/jogador" unique_id=1880993930]
 transform = Transform3D(1, 0, 0, 0, 0.94906497, 0.3150806, 0, -0.3150806, 0.94906497, 0, 0.48081023, 0.5632434)
 
-[node name="inimigo" type="CharacterBody3D" parent="cenario" unique_id=373596444]
+[node name="inimigo" type="CharacterBody3D" parent="cenario" unique_id=373596444 node_paths=PackedStringArray("pontos_patrulha")]
 transform = Transform3D(-0.9998575, 0, 0.016877, 0, 1, 0, -0.016877, 0, -0.9998575, 0, 0.010870844, 1.9727991)
+script = ExtResource("6_kek77")
+pontos_patrulha = [NodePath("../../PontosPatrulha/Ponto1"), NodePath("../../PontosPatrulha/Ponto2"), NodePath("../../PontosPatrulha/Ponto3")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/inimigo" unique_id=1827705788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38479236, 0.08430934, 1.959252)
@@ -401,6 +404,17 @@ transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item5" unique_id=2020403635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
 shape = SubResource("BoxShape3D_17gy4")
+
+[node name="PontosPatrulha" type="Node3D" parent="." unique_id=771911051]
+
+[node name="Ponto1" type="Marker3D" parent="PontosPatrulha" unique_id=2130323303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37882996, 1.1927423, 0.04638672)
+
+[node name="Ponto2" type="Marker3D" parent="PontosPatrulha" unique_id=1035629617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31533813, 0.5862427, 0.04296875)
+
+[node name="Ponto3" type="Marker3D" parent="PontosPatrulha" unique_id=775293196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13418579, 0.039245605, 3.5770264)
 
 [connection signal="body_entered" from="itens/item" to="itens/item" method="_on_body_entered"]
 [connection signal="body_entered" from="itens/item2" to="itens/item2" method="_on_body_entered"]
