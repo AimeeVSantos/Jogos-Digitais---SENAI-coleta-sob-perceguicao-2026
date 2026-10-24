@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b8kw0enky8nod" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-c.fbx" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bsfqa0lgseyel" path="res://scripts/jogador.gd" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ckldwbdse704i" path="res://assets/kenney_mini-characters/Models/FBX format/character-female-a.fbx" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://x33gtqhgrgie" path="res://item.gd" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://pg4gteq3hrlq" path="res://assets/kenney_city-kit-suburban_20/Models/GLB format/planter.glb" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,8 +20,8 @@ sky_material = SubResource("ProceduralSkyMaterial_7mycd")
 background_mode = 2
 sky = SubResource("Sky_272bh")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sx1ah"]
-size = Vector3(1.4303836, 0.001, 8.644939)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
+size = Vector3(1.6934204, 0.055847168, 9.363831)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3mtt1"]
 size = Vector3(0.5388676, 0.29421997, 0.08875275)
@@ -34,6 +36,9 @@ height = 0.21116638
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sx1ah"]
 radius = 0.07421875
 height = 0.24648666
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17gy4"]
+size = Vector3(0.32089233, 0.22167969, 0.418396)
 
 [node name="Principal" type="Node3D" unique_id=541282533]
 
@@ -50,8 +55,8 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9194775)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/Chao" unique_id=1294012485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06831774, 0.36116764, 0.015443087)
-shape = SubResource("BoxShape3D_sx1ah")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092222124, 0.001906246, 0.022960901)
+shape = SubResource("BoxShape3D_7mycd")
 
 [node name="path-long2" parent="cenario/Chao" unique_id=1979348434 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(7.782154, 0, 0, 0, 1, 0, 0, 0, 22.723763, -0.06758737, 0, 3.504753e-05)
@@ -312,8 +317,8 @@ shape = SubResource("BoxShape3D_xyeg7")
 [node name="building-type-u" parent="cenario/Casa2" unique_id=879008279 instance=ExtResource("3_h2yge")]
 transform = Transform3D(0.01121388, 0, 0.9999371, 0, 1, 0, -0.9999371, 0, 0.01121388, 1.506908, -0.033230156, 0.17064905)
 
-[node name="jogador" type="CharacterBody3D" parent="cenario" unique_id=1681279521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0046027005, 0)
+[node name="jogador" type="CharacterBody3D" parent="cenario" unique_id=1681279521 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061906904, 0)
 script = ExtResource("4_7mycd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/jogador" unique_id=140671016]
@@ -321,17 +326,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10863495, 0)
 shape = SubResource("CapsuleShape3D_d1tgx")
 
 [node name="character-female-c" parent="cenario/jogador" unique_id=918967092 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.29535216, 0, -2.7899064e-08, 0, 0.2553367, 0, 2.5820507e-08, 0, -0.3191281, 0, 0.013853669, 0)
+transform = Transform3D(-0.29535216, 0, -2.7899064e-08, 0, 0.2553367, 0, 2.5820507e-08, 0, -0.3191281, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cenario/jogador" unique_id=1880993930]
 transform = Transform3D(1, 0, 0, 0, 0.94906497, 0.3150806, 0, -0.3150806, 0.94906497, 0, 0.48081023, 0.5632434)
 
 [node name="inimigo" type="CharacterBody3D" parent="cenario" unique_id=373596444]
-transform = Transform3D(-0.99985754, 0, 0.016877001, 0, 1, 0, -0.016877001, 0, -0.99985754, 0, 0.010870844, 1.9727991)
+transform = Transform3D(-0.9998575, 0, 0.016877, 0, 1, 0, -0.016877, 0, -0.9998575, 0, 0.010870844, 1.9727991)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/inimigo" unique_id=1827705788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38479236, 0.08430934, 1.959252)
 shape = SubResource("CapsuleShape3D_sx1ah")
 
 [node name="character-female-a" parent="cenario/inimigo" unique_id=409796544 instance=ExtResource("5_lquwl")]
-transform = Transform3D(-0.35059902, 0, -0.024212109, 0, 0.25606075, 0, 0.026211318, 0, -0.3238581, 0.38041064, 0, 1.9650996)
+transform = Transform3D(-0.33485508, 0, -0.024149254, 0, 0.28707924, 0, 0.025034279, 0, -0.32301736, 0.38041076, 0, 1.9650996)
+
+[node name="itens" type="Node3D" parent="." unique_id=394781279]
+transform = Transform3D(0.18724637, 0, 0, 0, 0.34952545, 0, 0, 0, 0.16901794, 0.37344694, 0, -0.85243356)
+
+[node name="item" type="Area3D" parent="itens" unique_id=2128735109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6059532)
+script = ExtResource("7_5vw27")
+
+[node name="planter2" parent="itens/item" unique_id=246950798 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item" unique_id=1567511415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+shape = SubResource("BoxShape3D_17gy4")
+
+[node name="item2" type="Area3D" parent="itens" unique_id=742230439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2017953)
+script = ExtResource("7_5vw27")
+
+[node name="planter2" parent="itens/item2" unique_id=668312533 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item2" unique_id=1930023282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+shape = SubResource("BoxShape3D_17gy4")
+
+[node name="item3" type="Area3D" parent="itens" unique_id=1593728819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8279712)
+script = ExtResource("7_5vw27")
+
+[node name="planter2" parent="itens/item3" unique_id=1987313350 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996057, 0, -0.028075546, -0.21179032, 0, -2.4052927)
+
+[node name="planter3" parent="itens/item3" unique_id=1196604433 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996057, 0, -0.028075546, -0.21179032, 0, -2.4052927)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item3" unique_id=1421287473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+shape = SubResource("BoxShape3D_17gy4")
+
+[node name="item4" type="Area3D" parent="itens" unique_id=202627471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5658697, 0, 0)
+script = ExtResource("7_5vw27")
+
+[node name="planter2" parent="itens/item4" unique_id=1085805804 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item4" unique_id=1239795341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+shape = SubResource("BoxShape3D_17gy4")
+
+[node name="item5" type="Area3D" parent="itens" unique_id=1908562081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03177786)
+script = ExtResource("7_5vw27")
+
+[node name="planter2" parent="itens/item5" unique_id=802242793 instance=ExtResource("7_272bh")]
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item5" unique_id=2020403635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+shape = SubResource("BoxShape3D_17gy4")
+
+[connection signal="body_entered" from="itens/item" to="itens/item" method="_on_body_entered"]
+[connection signal="body_entered" from="itens/item2" to="itens/item2" method="_on_body_entered"]
+[connection signal="body_entered" from="itens/item3" to="itens/item3" method="_on_body_entered"]
+[connection signal="body_entered" from="itens/item4" to="itens/item4" method="_on_body_entered"]
+[connection signal="body_entered" from="itens/item5" to="itens/item5" method="_on_body_entered"]
