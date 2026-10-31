@@ -38,8 +38,11 @@ height = 0.21116638
 radius = 0.07421875
 height = 0.24648666
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sx1ah"]
+radius = 0.2876179
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_17gy4"]
-size = Vector3(0.32089233, 0.22167969, 0.418396)
+size = Vector3(0.32089233, 0.16464233, 0.418396)
 
 [node name="Principal" type="Node3D" unique_id=541282533]
 
@@ -56,11 +59,11 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.9194775)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/Chao" unique_id=1294012485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092222124, 0.001906246, 0.022960901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2927165, -0.092222124, 0.001906246, 0.16176772)
 shape = SubResource("BoxShape3D_7mycd")
 
-[node name="path-long2" parent="cenario/Chao" unique_id=1979348434 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(7.782154, 0, 0, 0, 1, 0, 0, 0, 22.723763, -0.06758737, 0, 3.504753e-05)
+[node name="path-long2" parent="cenario/Chao" unique_id=14995558 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(8.066282, 0, 0, 0, 2.861022, 0, 0, 0, 30.411392, -0.095009804, -0.036187053, 0.18217754)
 
 [node name="Cerca" type="StaticBody3D" parent="cenario" unique_id=1196921221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6696121, 0, 0)
@@ -232,7 +235,7 @@ transform = Transform3D(-4.9630064e-08, 0, 1, 0, 1.2523441, 0, -1.1354035, 0, -4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2587051, 0, 1.890621)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/Cerca17" unique_id=799072242]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.384767, 0.19084167, 1.190295)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3819814, 0.16729254, 0)
 shape = SubResource("BoxShape3D_3mtt1")
 
 [node name="fence" parent="cenario/Cerca17" unique_id=721383455 instance=ExtResource("2_0xm2m")]
@@ -319,15 +322,14 @@ shape = SubResource("BoxShape3D_xyeg7")
 transform = Transform3D(0.01121388, 0, 0.9999371, 0, 1, 0, -0.9999371, 0, 0.01121388, 1.506908, -0.033230156, 0.17064905)
 
 [node name="jogador" type="CharacterBody3D" parent="cenario" unique_id=1681279521 groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061906904, 0)
 script = ExtResource("4_7mycd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/jogador" unique_id=140671016]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10863495, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12273316, 0)
 shape = SubResource("CapsuleShape3D_d1tgx")
 
 [node name="character-female-c" parent="cenario/jogador" unique_id=918967092 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(-0.29535216, 0, -2.7899064e-08, 0, 0.2553367, 0, 2.5820507e-08, 0, -0.3191281, 0, 0, 0)
+transform = Transform3D(-0.29535216, 0, -4.8187005e-08, 0, 0.2553367, 0, 4.4596938e-08, 0, -0.3191281, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="cenario/jogador" unique_id=1880993930]
 transform = Transform3D(1, 0, 0, 0, 0.94906497, 0.3150806, 0, -0.3150806, 0.94906497, 0, 0.48081023, 0.5632434)
@@ -338,28 +340,33 @@ script = ExtResource("6_kek77")
 pontos_patrulha = [NodePath("../../PontosPatrulha/Ponto1"), NodePath("../../PontosPatrulha/Ponto2"), NodePath("../../PontosPatrulha/Ponto3")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/inimigo" unique_id=1827705788]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38479236, 0.08430934, 1.959252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13573304, 0)
 shape = SubResource("CapsuleShape3D_sx1ah")
 
 [node name="character-female-a" parent="cenario/inimigo" unique_id=409796544 instance=ExtResource("5_lquwl")]
-transform = Transform3D(-0.33485508, 0, -0.024149254, 0, 0.28707924, 0, 0.025034279, 0, -0.32301736, 0.38041076, 0, 1.9650996)
+transform = Transform3D(-0.33485517, 0, -0.024149254, 0, 0.28707924, 0, 0.025034286, 0, -0.32301736, 0, 0, 0)
+
+[node name="AreaDeteccao" type="Area3D" parent="cenario/inimigo" unique_id=224875591]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cenario/inimigo/AreaDeteccao" unique_id=1165820956]
+shape = SubResource("SphereShape3D_sx1ah")
 
 [node name="itens" type="Node3D" parent="." unique_id=394781279]
 transform = Transform3D(0.18724637, 0, 0, 0, 0.34952545, 0, 0, 0, 0.16901794, 0.37344694, 0, -0.85243356)
 
 [node name="item" type="Area3D" parent="itens" unique_id=2128735109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6059532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8182861, 0, 6.7723455)
 script = ExtResource("7_5vw27")
 
 [node name="planter2" parent="itens/item" unique_id=246950798 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item" unique_id=1567511415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005901858, 0.10912963, -0.016637087)
 shape = SubResource("BoxShape3D_17gy4")
 
 [node name="item2" type="Area3D" parent="itens" unique_id=742230439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2017953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32060122, 0, 9.358149)
 script = ExtResource("7_5vw27")
 
 [node name="planter2" parent="itens/item2" unique_id=668312533 instance=ExtResource("7_272bh")]
@@ -370,51 +377,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.
 shape = SubResource("BoxShape3D_17gy4")
 
 [node name="item3" type="Area3D" parent="itens" unique_id=1593728819]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8279712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6629865, 0, -6.699388)
 script = ExtResource("7_5vw27")
 
-[node name="planter2" parent="itens/item3" unique_id=1987313350 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996057, 0, -0.028075546, -0.21179032, 0, -2.4052927)
-
 [node name="planter3" parent="itens/item3" unique_id=1196604433 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996057, 0, -0.028075546, -0.21179032, 0, -2.4052927)
+transform = Transform3D(-0.028075503, 0, 0.9996058, 0, 1, 0, -0.9996057, 0, -0.028075505, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item3" unique_id=1421287473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.122158244, 0)
 shape = SubResource("BoxShape3D_17gy4")
 
 [node name="item4" type="Area3D" parent="itens" unique_id=202627471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5658697, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2456179, 0, 0)
 script = ExtResource("7_5vw27")
 
 [node name="planter2" parent="itens/item4" unique_id=1085805804 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item4" unique_id=1239795341]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115820296, 0)
 shape = SubResource("BoxShape3D_17gy4")
 
 [node name="item5" type="Area3D" parent="itens" unique_id=1908562081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03177786)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8764397, 0, -3.5475554)
 script = ExtResource("7_5vw27")
 
 [node name="planter2" parent="itens/item5" unique_id=802242793 instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, -0.76908374, 0, -1.1608176)
+transform = Transform3D(-0.028075546, 0, 0.9996058, 0, 1, 0, -0.9996058, 0, -0.028075546, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="itens/item5" unique_id=2020403635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76893246, 0.110617906, -1.1598362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123021424, 0)
 shape = SubResource("BoxShape3D_17gy4")
 
 [node name="PontosPatrulha" type="Node3D" parent="." unique_id=771911051]
 
 [node name="Ponto1" type="Marker3D" parent="PontosPatrulha" unique_id=2130323303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37882996, 1.1927423, 0.04638672)
+transform = Transform3D(0.61611176, 0, 0, 0, 0.024191331, 0, 0, 0, 0.709234, -0.035393715, -0.09466648, 5.830653)
 
 [node name="Ponto2" type="Marker3D" parent="PontosPatrulha" unique_id=1035629617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31533813, 0.5862427, 0.04296875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06740636, -0.18253124, 0.27629724)
 
 [node name="Ponto3" type="Marker3D" parent="PontosPatrulha" unique_id=775293196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13418579, 0.039245605, 3.5770264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6612673, -0.08908384, 1.9307204)
 
 [connection signal="body_entered" from="itens/item" to="itens/item" method="_on_body_entered"]
 [connection signal="body_entered" from="itens/item2" to="itens/item2" method="_on_body_entered"]
