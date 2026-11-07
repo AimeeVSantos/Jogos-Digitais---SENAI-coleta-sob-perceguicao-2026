@@ -9,13 +9,16 @@ var referencia_jogador: Node3D = null
 
 var indice_patrulha := 0
 
-const VELOCIDADE_BASE := 1.5
+const VELOCIDADE_BASE := 1
 
 var velocidade_atual := VELOCIDADE_BASE
 
 const DISTANCIA_CHEGADA := 0.2
 
 func _physics_process(delta: float) -> void:
+	if GameManager.jogo_encerrado:
+		return
+	
 	velocidade_atual = VELOCIDADE_BASE * GameManager.dificuldade
 	
 	if estado == Estado.PATRULHA:
