@@ -37,7 +37,7 @@ func _ready() -> void:
 	
 func _ao_capturar_corpo_entrar(corpo: Node3D) -> void:
 	if corpo.is_in_group("player"):
-		print("peguei você!")
+		print("Peguei você!")
 	
 func _ao_detectar_corpo_sair(corpo: Node3D) -> void:
 	if corpo.is_in_group("player"):

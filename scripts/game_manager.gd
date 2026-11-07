@@ -24,8 +24,9 @@ func perder() -> void:
 	print("Derrota")
 	
 func _process(delta: float) -> void:
-	tempo_decorrido += delta
-	dificuldade = 1.0 + tempo_decorrido / TEMPO_PARA_DOBRAR
+	if not jogo_encerrado:
+		tempo_decorrido += delta
+		dificuldade = 1.0 + tempo_decorrido / TEMPO_PARA_DOBRAR
 
 func coletar_item() -> void:
 	pontuacao += PONTOS_POR_ITEM
