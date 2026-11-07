@@ -11,6 +11,7 @@ const TEMPO_PARA_DOBRAR := 60.0
 var dificuldade := 1.0
 
 var jogo_encerrado := false
+var jogador_capturado := false
 
 var total_itens := 0
 var itens_coletados := 0
@@ -21,15 +22,18 @@ func vencer() -> void:
 	
 func perder() -> void:
 	jogo_encerrado = true
+	jogador_capturado = true
 	print("Derrota")
 	
 func _process(delta: float) -> void:
 	if not jogo_encerrado:
 		tempo_decorrido += delta
-		dificuldade = 1.0 + tempo_decorrido / TEMPO_PARA_DOBRAR
+
+	dificuldade = 1.0 + tempo_decorrido / TEMPO_PARA_DOBRAR
 
 func coletar_item() -> void:
 	pontuacao += PONTOS_POR_ITEM
+	
 	itens_coletados += 1
 	
 	if itens_coletados == total_itens:
